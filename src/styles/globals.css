@@ -1,0 +1,397 @@
+/**
+ * [PRO_UI] Design Tokens & Editorial Layout System
+ * Palette:
+ * - Deep Obsidian: #11110F
+ * - Warm Ivory: #EAE6DD
+ * - Champagne Gold: #B49A70
+ * - Muted Stone: #8C8981
+ * - Soft Graphite: #292824
+ * - Pure White: #F7F6F2
+ *
+ * Motion:
+ * - Primary Easing: cubic-bezier(0.16, 1, 0.3, 1)
+ */
+
+:root {
+  /* Brand Color Palette */
+  --c-obsidian: #11110F;
+  --c-ivory: #EAE6DD;
+  --c-gold: #B49A70;
+  --c-gold-subtle: rgba(180, 154, 112, 0.24);
+  --c-gold-faint: rgba(180, 154, 112, 0.10);
+  --c-stone: #8C8981;
+  --c-graphite: #292824;
+  --c-white: #F7F6F2;
+
+  /* Hairlines & Surfaces */
+  --line-dark: rgba(234, 230, 221, 0.11);
+  --line-light: rgba(17, 17, 15, 0.12);
+  --surface-dark: #171714;
+  --surface-ivory-elevated: #F3F0E8;
+
+  /* Typography */
+  --f-display: 'Cormorant Garamond', Georgia, 'Times New Roman', serif;
+  --f-ui: 'Manrope', -apple-system, BlinkMacSystemFont, sans-serif;
+  --f-mono: 'JetBrains Mono', monospace;
+
+  /* Fluid Type Scale */
+  --t-hero: clamp(2.75rem, 1.6rem + 3.8vw, 5.25rem);
+  --t-h2: clamp(2.15rem, 1.35rem + 2.5vw, 3.75rem);
+  --t-h3: clamp(1.5rem, 1.15rem + 1.1vw, 2.25rem);
+  --t-lead: clamp(1.0625rem, 0.98rem + 0.35vw, 1.25rem);
+  --t-body: 0.96875rem;
+  --t-caption: 0.75rem;
+  --t-micro: 0.6875rem;
+
+  /* Layout & Grid */
+  --container-max: 1440px;
+  --gutter: clamp(1.25rem, 3.5vw, 3.75rem);
+
+  /* Motion System */
+  --ease-veron: cubic-bezier(0.16, 1, 0.3, 1);
+  --dur-hover: 280ms;
+  --dur-ui: 420ms;
+  --dur-reveal: 750ms;
+
+  /* Z-Index Architecture */
+  --z-canvas: 1;
+  --z-content: 10;
+  --z-nav: 50;
+  --z-modal: 100;
+}
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+  background-color: var(--c-obsidian);
+  color: var(--c-ivory);
+  font-family: var(--f-ui);
+  font-size: 16px;
+  line-height: 1.6;
+  overflow-x: hidden;
+  max-width: 100%;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
+}
+
+body,
+.veron-app-root {
+  background-color: var(--c-obsidian);
+  color: var(--c-ivory);
+  overflow-x: hidden;
+  max-width: 100%;
+  selection-background-color: var(--c-gold);
+}
+
+::selection {
+  background: var(--c-gold);
+  color: var(--c-obsidian);
+}
+
+/* Accessibility Skip Link */
+.skip-link {
+  position: fixed;
+  top: -100px;
+  left: var(--gutter);
+  z-index: 200;
+  background: var(--c-gold);
+  color: var(--c-obsidian);
+  padding: 0.75rem 1.25rem;
+  font-family: var(--f-ui);
+  font-size: var(--t-caption);
+  font-weight: 600;
+  letter-spacing: 0.14em;
+  text-transform: uppercase;
+  text-decoration: none;
+  transition: top var(--dur-hover) var(--ease-veron);
+}
+
+.skip-link:focus {
+  top: 1rem;
+}
+
+/* Visible Keyboard Focus State */
+:focus-visible {
+  outline: 1px solid var(--c-gold);
+  outline-offset: 4px;
+}
+
+/* Container & Grid Utilities */
+.veron-container {
+  width: 100%;
+  max-width: var(--container-max);
+  margin-inline: auto;
+  padding-inline: var(--gutter);
+}
+
+.editorial-grid {
+  display: grid;
+  grid-template-columns: repeat(12, minmax(0, 1fr));
+  column-gap: clamp(1rem, 2vw, 2rem);
+}
+
+/* Section Visual Environments */
+.env-obsidian {
+  background-color: var(--c-obsidian);
+  color: var(--c-ivory);
+}
+
+.env-ivory {
+  background-color: var(--c-ivory);
+  color: var(--c-obsidian);
+}
+
+/* Typography Classes */
+.font-display {
+  font-family: var(--f-display);
+  font-weight: 300;
+  line-height: 1.04;
+  letter-spacing: -0.02em;
+}
+
+.font-display-italic {
+  font-family: var(--f-display);
+  font-style: italic;
+  font-weight: 400;
+}
+
+.tech-label {
+  font-family: var(--f-ui);
+  font-size: var(--t-micro);
+  font-weight: 500;
+  text-transform: uppercase;
+  letter-spacing: 0.2em;
+  color: var(--c-stone);
+}
+
+.tech-mono {
+  font-family: var(--f-mono);
+  font-size: var(--t-caption);
+  font-variant-numeric: tabular-nums;
+  letter-spacing: 0.06em;
+}
+
+/* Hairline Dividers */
+.hairline-dark {
+  height: 1px;
+  width: 100%;
+  background-color: var(--line-dark);
+  border: none;
+}
+
+.hairline-light {
+  height: 1px;
+  width: 100%;
+  background-color: var(--line-light);
+  border: none;
+}
+
+.hairline-gold {
+  height: 1px;
+  width: 100%;
+  background: linear-gradient(90deg, var(--c-gold) 0%, rgba(180, 154, 112, 0.15) 100%);
+  border: none;
+}
+
+/* Buttons & Interactive Controls (No SaaS rounded pills; sharp architectural geometry) */
+.btn-primary {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.875rem;
+  padding: 1rem 2rem;
+  background-color: transparent;
+  color: var(--c-ivory);
+  border: 1px solid var(--c-gold);
+  font-family: var(--f-ui);
+  font-size: var(--t-caption);
+  font-weight: 500;
+  letter-spacing: 0.18em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  overflow: hidden;
+  isolation: isolate;
+  transition:
+    color var(--dur-hover) var(--ease-veron),
+    border-color var(--dur-hover) var(--ease-veron),
+    transform var(--dur-hover) var(--ease-veron);
+}
+
+.btn-primary::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  z-index: -1;
+  background-color: var(--c-gold);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-ui) var(--ease-veron);
+}
+
+@media (hover: hover) {
+  .btn-primary:hover {
+    color: var(--c-obsidian);
+  }
+  .btn-primary:hover::before {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+.btn-primary:active {
+  transform: scale(0.985);
+}
+
+.btn-primary--solid {
+  background-color: var(--c-gold);
+  color: var(--c-obsidian);
+}
+
+.btn-primary--solid::before {
+  background-color: var(--c-white);
+}
+
+@media (hover: hover) {
+  .btn-primary--solid:hover {
+    color: var(--c-obsidian);
+    border-color: var(--c-white);
+  }
+}
+
+.btn-secondary-link {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+  gap: 0.625rem;
+  padding-block: 0.35rem;
+  background: none;
+  border: none;
+  color: var(--c-ivory);
+  font-family: var(--f-ui);
+  font-size: var(--t-caption);
+  font-weight: 400;
+  letter-spacing: 0.16em;
+  text-transform: uppercase;
+  text-decoration: none;
+  cursor: pointer;
+  transition: color var(--dur-hover) var(--ease-veron);
+}
+
+.btn-secondary-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--c-gold);
+  transform: scaleX(0.35);
+  transform-origin: left center;
+  transition: transform var(--dur-ui) var(--ease-veron);
+}
+
+@media (hover: hover) {
+  .btn-secondary-link:hover {
+    color: var(--c-gold);
+  }
+  .btn-secondary-link:hover::after {
+    transform: scaleX(1);
+  }
+}
+
+/* Navigation Link Draw */
+.nav-link {
+  position: relative;
+  color: var(--c-ivory);
+  font-family: var(--f-ui);
+  font-size: 0.72rem;
+  font-weight: 400;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  text-decoration: none;
+  padding-block: 0.35rem;
+  opacity: 0.82;
+  transition:
+    opacity var(--dur-hover) var(--ease-veron),
+    color var(--dur-hover) var(--ease-veron);
+}
+
+.nav-link::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  width: 100%;
+  height: 1px;
+  background-color: var(--c-gold);
+  transform: scaleX(0);
+  transform-origin: right center;
+  transition: transform var(--dur-ui) var(--ease-veron);
+}
+
+@media (hover: hover) {
+  .nav-link:hover {
+    opacity: 1;
+    color: var(--c-white);
+  }
+  .nav-link:hover::after {
+    transform: scaleX(1);
+    transform-origin: left center;
+  }
+}
+
+/* WebGL Pointer Layering Rule (B5 from awwwards-3d-pipeline) */
+.canvas-layer {
+  position: relative;
+  z-index: var(--z-canvas);
+  user-select: none;
+  -webkit-user-select: none;
+  touch-action: pan-y;
+}
+
+.ui-overlay-passthrough {
+  pointer-events: none;
+  z-index: var(--z-content);
+}
+
+.ui-interactive {
+  pointer-events: auto;
+}
+
+/* Responsive Breakpoints */
+@media (max-width: 1024px) {
+  .editorial-grid {
+    grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 640px) {
+  .editorial-grid {
+    grid-template-columns: repeat(4, minmax(0, 1fr));
+  }
+}
+
+/* Reduced Motion Compliance */
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
