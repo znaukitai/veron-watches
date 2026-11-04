@@ -1,3 +1,5 @@
+@import './fonts.css';
+
 /**
  * [PRO_UI] Design Tokens & Editorial Layout System
  * Palette:
@@ -22,6 +24,9 @@
   --c-stone: #8C8981;
   --c-graphite: #292824;
   --c-white: #F7F6F2;
+
+  /* Navigation & Layout Heights */
+  --nav-height: 84px;
 
   /* Hairlines & Surfaces */
   --line-dark: rgba(234, 230, 221, 0.11);
@@ -130,6 +135,13 @@ body,
   max-width: var(--container-max);
   margin-inline: auto;
   padding-inline: var(--gutter);
+  box-sizing: border-box;
+}
+
+/* Global Sticky Header Collision Offset */
+section[id],
+:target {
+  scroll-margin-top: calc(var(--nav-height, 84px) + 20px);
 }
 
 .editorial-grid {
@@ -372,6 +384,20 @@ body,
 @media (max-width: 1024px) {
   .editorial-grid {
     grid-template-columns: repeat(6, minmax(0, 1fr));
+  }
+}
+
+@media (max-width: 768px) {
+  :root {
+    --nav-height: 72px;
+    --gutter: 16px;
+  }
+  .veron-container {
+    padding-inline: 16px !important;
+  }
+  section[id],
+  :target {
+    scroll-margin-top: 88px;
   }
 }
 

@@ -6,21 +6,237 @@
     <title>VÉRON — Independent Watchmaking | Haute Horlogerie</title>
     <meta
       name="description"
-      content="VÉRON — Independent Watchmaking. Time, Crafted to Perfection. Explore our mechanical calibres, exploded movement architecture, and bespoke 3D Watch Atelier."
+      content="VÉRON — Independent Watchmaking. Time, Crafted to Perfection. Explore our in-house mechanical calibres, exploded movement architecture, and bespoke 3D Watch Atelier."
     />
     <meta name="theme-color" content="#11110F" />
-    <!-- Editorial Luxury Typography: Cormorant Garamond (Display), Manrope (UI), JetBrains Mono (Technical) -->
-    <link rel="preconnect" href="https://fonts.googleapis.com" />
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-    <link
-      href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;1,300;1,400&family=JetBrains+Mono:wght@300;400&family=Manrope:wght@300;400;500;600&display=swap"
-      rel="stylesheet"
+    <link rel="canonical" href="https://veron-horlogerie.com/" />
+
+    <!-- OpenGraph Metadata -->
+    <meta property="og:site_name" content="Maison VÉRON" />
+    <meta property="og:type" content="website" />
+    <meta property="og:title" content="VÉRON — Independent Watchmaking | Haute Horlogerie" />
+    <meta
+      property="og:description"
+      content="Time, Crafted to Perfection. An expression of precision, patience and the art of mechanical watchmaking. Explore our in-house calibres and interactive 3D Watch Atelier."
     />
+    <meta property="og:url" content="https://veron-horlogerie.com/" />
+    <meta property="og:image" content="/og-image.png" />
+    <meta property="og:image:secure_url" content="https://veron-horlogerie.com/og-image.png" />
+    <meta property="og:image:type" content="image/png" />
+    <meta property="og:image:width" content="1200" />
+    <meta property="og:image:height" content="630" />
+    <meta property="og:image:alt" content="Maison VÉRON Haute Horlogerie Timepiece" />
+    <meta property="og:locale" content="en_US" />
+
+    <!-- Twitter Card Metadata -->
+    <meta name="twitter:card" content="summary_large_image" />
+    <meta name="twitter:title" content="VÉRON — Independent Watchmaking | Haute Horlogerie" />
+    <meta
+      name="twitter:description"
+      content="Time, Crafted to Perfection. Explore our in-house mechanical calibres, exploded movement architecture, and bespoke 3D Watch Atelier."
+    />
+    <meta name="twitter:image" content="/og-image.png" />
+    <meta name="twitter:image:alt" content="Maison VÉRON Haute Horlogerie Timepiece" />
+
+    <!-- Preload Critical Self-Hosted WOFF2 Fonts for Instant First Paint -->
+    <link
+      rel="preload"
+      href="/fonts/4_co3ZmX5slCNuHLi8bLeY9MK7whWMhyjYrEtImSo.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/21_xn7gYHE41ni1AdIRggexSg.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+    <link
+      rel="preload"
+      href="/fonts/15_tDbv2o-flEEny0FZhsfKu5WU4zr3E_BX0PnT8RD8yK0BNntkaToggR7BYZbNPxDcwg.woff2"
+      as="font"
+      type="font/woff2"
+      crossorigin
+    />
+
+    <!-- JSON-LD Structured Data Schema -->
+    <script type="application/ld+json">
+      {
+        "@context": "https://schema.org",
+        "@graph": [
+          {
+            "@type": "Organization",
+            "@id": "https://veron-horlogerie.com/#organization",
+            "name": "Maison VÉRON",
+            "url": "https://veron-horlogerie.com",
+            "logo": "https://veron-horlogerie.com/og-image.png",
+            "description": "Independent Swiss Haute Horlogerie manufacture based in Genève.",
+            "foundingDate": "2024",
+            "address": {
+              "@type": "PostalAddress",
+              "addressLocality": "Genève",
+              "addressCountry": "CH"
+            }
+          },
+          {
+            "@type": "WebSite",
+            "@id": "https://veron-horlogerie.com/#website",
+            "url": "https://veron-horlogerie.com",
+            "name": "VÉRON — Independent Watchmaking",
+            "publisher": {
+              "@id": "https://veron-horlogerie.com/#organization"
+            }
+          }
+        ]
+      }
+    </script>
+
     <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Crect width='64' height='64' fill='%2311110F'/%3E%3Ccircle cx='32' cy='32' r='25' fill='none' stroke='%23B49A70' stroke-width='1.5'/%3E%3Ctext x='32' y='40' font-family='Georgia, serif' font-size='26' fill='%23EAE6DD' text-anchor='middle'%3EV%3C/text%3E%3C/svg%3E" />
   </head>
   <body>
-    <a href="#main-content" class="skip-link">Skip to main content</a>
-    <div id="root"></div>
+    <a href="#top" class="skip-link">Skip to main content</a>
+
+    <!-- Semantic SSR / Pre-Render Fallback Shell (Replaced seamlessly upon React hydration) -->
+    <div id="root">
+      <header>
+        <nav aria-label="Primary Navigation">
+          <a href="#top">VÉRON GENÈVE · CONCEPT</a>
+          <ul>
+            <li><a href="#collection">Collection</a></li>
+            <li><a href="#mechanics">Mechanics</a></li>
+            <li><a href="#craftsmanship">Craftsmanship</a></li>
+            <li><a href="#atelier">Atelier</a></li>
+            <li><a href="#atelier">Configure Timepiece</a></li>
+          </ul>
+        </nav>
+      </header>
+
+      <main>
+        <section id="top">
+          <p>INDEPENDENT WATCHMAKING / EST. MMXXIV</p>
+          <h1>TIME, CRAFTED TO PERFECTION.</h1>
+          <p>An expression of precision, patience and the art of mechanical watchmaking.</p>
+          <div>
+            <a href="#collection">EXPLORE THE COLLECTION</a>
+            <a href="#atelier">DISCOVER THE ATELIER</a>
+          </div>
+          <blockquote>
+            “Some things are not made to follow time. They are made to define it.”
+            <cite>MAISON VÉRON · HAUTE HORLOGERIE</cite>
+          </blockquote>
+          <div>
+            <div>
+              <h3>DISPLAYED REFERENCE</h3>
+              <p>VÉRON No. 01 — The Classic</p>
+            </div>
+            <div>
+              <h3>MOVEMENT ARCHITECTURE</h3>
+              <p>Calibre VR-01 In-House Manual (186 Components)</p>
+            </div>
+            <div>
+              <h3>OSCILLATION & RESERVE</h3>
+              <p>21,600 vph (3 Hz) · 72 Hours Power Reserve</p>
+            </div>
+            <div>
+              <h3>ANNUAL PRODUCTION</h3>
+              <p>25 Pieces Annually</p>
+            </div>
+          </div>
+        </section>
+
+        <section id="collection">
+          <header>
+            <p>02 / THE COLLECTION · HOROLOGICAL ARCHIVE</p>
+            <h2>Three Expressions of Mechanical Mastery.</h2>
+            <p>Produced in strictly numbered annual series. Select any reference to inspect its calibre specifications or configure it directly inside the 3D Watch Atelier.</p>
+          </header>
+
+          <article>
+            <h3>VR-01 — The Classic</h3>
+            <p>39mm Dress Watch · Calibre VR-01 Manual · 25 Pieces Annually</p>
+            <p>A pure architectural meditation on essential time. Features a hand-turned guilloché dial, heat-blued hands, and stepped carrure.</p>
+            <p>Dimensions: 39.0mm × 8.4mm | Frequency: 21,600 vph (3 Hz) | Power Reserve: 72 Hours | Base: CHF 34,500</p>
+          </article>
+
+          <article>
+            <h3>VR-02 — The Skeleton</h3>
+            <p>40mm Openworked Calibre · Calibre VR-02 Openwork · 15 Pieces Annually</p>
+            <p>Stripped to the essence of kinetic beauty. Openworked bridges reveal the heart of the escapement and free-sprung balance wheel.</p>
+            <p>Dimensions: 40.0mm × 8.9mm | Frequency: 28,800 vph (4 Hz) | Power Reserve: 65 Hours | Base: CHF 48,000</p>
+          </article>
+
+          <article>
+            <h3>VR-03 — The Chronograph</h3>
+            <p>41mm Monopusher · Calibre VR-03 Column Wheel · 10 Pieces Annually</p>
+            <p>Integrated column-wheel chronograph with lateral clutch. Engineered for tactile precision and instantaneous zero-reset.</p>
+            <p>Dimensions: 41.0mm × 10.8mm | Frequency: 28,800 vph (4 Hz) | Power Reserve: 58 Hours | Base: CHF 62,000</p>
+          </article>
+
+          <div>
+            <h3>SELECTED CALIBRE SPECIFICATION DOSSIER</h3>
+            <h4>VÉRON No. 01 — The Classic (Calibre VR-01 In-House Manual)</h4>
+            <p>Designed for the collector who values silence over spectacle. The 8.4mm profile slips effortlessly beneath a tailored cuff.</p>
+            <ul>
+              <li>JEWEL BEARINGS: 29 Functional Rubies</li>
+              <li>TOTAL COMPONENTS: 186 Hand-Finished Parts</li>
+              <li>WATER RESISTANCE: 5 ATM / 50m</li>
+              <li>BESPOKE CUSTOMIZATION: Configure in 3D</li>
+            </ul>
+          </div>
+        </section>
+
+        <section id="mechanics">
+          <header>
+            <p>03 / HOROLOGICAL ANATOMY · EXPLODED VIEW</p>
+            <h2>THE ART OF MECHANICS</h2>
+            <p>Every component has a purpose. Every movement tells a story.</p>
+          </header>
+          <div>
+            <p>— 04 · SERVICEABLE FOREVER</p>
+            <h3>186 parts. Zero shortcuts.</h3>
+            <p>Every bridge, ruby chaton, sapphire gasket, and gear pinion disassembles cleanly. Engineered to be serviced and restored for generations.</p>
+            <ol>
+              <li>LAYER 01 // CORUNDUM OPTICS — Sapphire Crystal (Box-Domed Corundum, 1.77 IOR)</li>
+              <li>LAYER 02 // INDICATION — Hands Assembly (18K Gold Faceted Dauphine)</li>
+              <li>LAYER 03 // CADRAN — Guilloché Dial (Ligne Droite Rose-Engine / Solid Brass)</li>
+              <li>LAYER 04 // CALIBRE MANUFACTURE — Calibre Movement (Côtes de Genève & Escapement)</li>
+              <li>LAYER 05 // CARRURE — Exhibition Case & Flank (Stepped Carrure Ø 39.0mm)</li>
+            </ol>
+          </div>
+        </section>
+
+        <section id="craftsmanship">
+          <header>
+            <p>04 / SAVOIR-FAIRE · ATELIER GENÈVE</p>
+            <h2>Patience Over Production.</h2>
+            <p>Five watchmakers. Forty-eight timepieces a year. Zero compromises.</p>
+          </header>
+          <div>
+            <h3>Hand-Turned Guilloché</h3>
+            <p>Cut tooth-by-tooth on a restored 1920s rose engine lathe. No CNC machines touch our dial blanks.</p>
+            <h3>Internal Anglage & Mirror Polishing</h3>
+            <p>Chamfered interior angles hand-polished with gentian wood paste to a flawless black specular sheen.</p>
+            <h3>Free-Sprung Gyromax Balance</h3>
+            <p>Regulated in six positions and two temperatures for chronometer stability under real-world wrist wear.</p>
+          </div>
+        </section>
+
+        <section id="atelier">
+          <header>
+            <p>05 / INTERACTIVE WATCH ATELIER · BESPOKE COMMISSION</p>
+            <h2>Personalize Your VÉRON Timepiece.</h2>
+            <p>Select your alloy, dial guilloché pattern, strap leather, and bespoke caseback engraving.</p>
+          </header>
+        </section>
+      </main>
+
+      <footer>
+        <p>MAISON VÉRON · GENÈVE · INDEPENDENT HAUTE HORLOGERIE · ALL RIGHTS RESERVED</p>
+      </footer>
+    </div>
+
     <script type="module" src="/src/main.tsx"></script>
   </body>
 </html>

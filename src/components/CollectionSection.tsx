@@ -438,7 +438,7 @@ export const CollectionSection: React.FC = () => {
         borderBottom: '1px solid var(--line-light)',
       }}
     >
-      <div className="veron-container">
+      <div className="veron-container collection-container">
         {/* Section Editorial Header */}
         <div
           className="editorial-grid"
@@ -707,6 +707,7 @@ export const CollectionSection: React.FC = () => {
 
         {/* Active Reference Expanded Horological Dossier Drawer */}
         <div
+          id="collection-dossier"
           style={{
             marginTop: '4.5rem',
             padding: 'clamp(1.75rem, 3.5vw, 3rem)',
@@ -716,6 +717,9 @@ export const CollectionSection: React.FC = () => {
             gridTemplateColumns: 'repeat(12, minmax(0, 1fr))',
             gap: '2rem',
             alignItems: 'center',
+            boxSizing: 'border-box',
+            width: '100%',
+            maxWidth: '100%',
           }}
           className="dossier-bar"
         >
@@ -724,11 +728,14 @@ export const CollectionSection: React.FC = () => {
               SELECTED CALIBRE SPECIFICATION DOSSIER
             </span>
             <h3
-              className="font-display"
+              className="font-display dossier-title"
               style={{
                 fontSize: 'clamp(1.65rem, 2.2vw, 2.35rem)',
                 color: 'var(--c-obsidian)',
                 marginTop: '0.35rem',
+                lineHeight: 1.25,
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word',
               }}
             >
               {inspectingModel.code} — {inspectingModel.name} ({inspectingModel.calibre})
@@ -739,6 +746,9 @@ export const CollectionSection: React.FC = () => {
                 color: 'var(--c-graphite)',
                 fontSize: '0.95rem',
                 maxWidth: '62ch',
+                lineHeight: 1.6,
+                wordBreak: 'break-word',
+                overflowWrap: 'break-word',
               }}
             >
               {inspectingModel.editorialNote}
@@ -756,31 +766,31 @@ export const CollectionSection: React.FC = () => {
             }}
             className="dossier-right"
           >
-            <div>
+            <div className="dossier-stat-item">
               <span className="tech-label" style={{ fontSize: '0.62rem' }}>
                 JEWEL BEARINGS
               </span>
-              <p className="tech-mono" style={{ color: 'var(--c-obsidian)', fontSize: '1rem' }}>
+              <p className="tech-mono dossier-stat-val" style={{ color: 'var(--c-obsidian)', fontSize: '1rem' }}>
                 {inspectingModel.jewels} Functional Rubies
               </p>
             </div>
-            <div>
+            <div className="dossier-stat-item">
               <span className="tech-label" style={{ fontSize: '0.62rem' }}>
                 TOTAL COMPONENTS
               </span>
-              <p className="tech-mono" style={{ color: 'var(--c-obsidian)', fontSize: '1rem' }}>
+              <p className="tech-mono dossier-stat-val" style={{ color: 'var(--c-obsidian)', fontSize: '1rem' }}>
                 {inspectingModel.partsCount} Hand-Finished Parts
               </p>
             </div>
-            <div>
+            <div className="dossier-stat-item">
               <span className="tech-label" style={{ fontSize: '0.62rem' }}>
                 WATER RESISTANCE
               </span>
-              <p className="tech-mono" style={{ color: 'var(--c-obsidian)', fontSize: '1rem' }}>
+              <p className="tech-mono dossier-stat-val" style={{ color: 'var(--c-obsidian)', fontSize: '1rem' }}>
                 {inspectingModel.waterResistance}
               </p>
             </div>
-            <div>
+            <div className="dossier-stat-item">
               <span className="tech-label" style={{ fontSize: '0.62rem' }}>
                 BESPOKE CUSTOMIZATION
               </span>
@@ -804,6 +814,9 @@ export const CollectionSection: React.FC = () => {
       </div>
 
       <style>{`
+        #collection {
+          scroll-margin-top: 88px;
+        }
         @media (max-width: 1024px) {
           .col-header-left, .col-header-right {
             grid-column: 1 / -1 !important;
@@ -818,6 +831,46 @@ export const CollectionSection: React.FC = () => {
             grid-column: 1 / -1 !important;
             border-left: none !important;
             padding-left: 0 !important;
+          }
+        }
+        @media (max-width: 768px) {
+          #collection {
+            padding-top: calc(72px + 24px) !important;
+            scroll-margin-top: 88px !important;
+          }
+          .collection-container {
+            padding-left: 16px !important;
+            padding-right: 16px !important;
+            box-sizing: border-box !important;
+          }
+          .dossier-bar {
+            width: 100% !important;
+            max-width: 100% !important;
+            box-sizing: border-box !important;
+            margin-top: 2.25rem !important;
+            padding: 1.35rem 1rem !important;
+            gap: 1.25rem !important;
+            scroll-margin-top: 88px !important;
+          }
+          .dossier-title {
+            font-size: clamp(1.25rem, 5vw, 1.75rem) !important;
+            line-height: 1.25 !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
+          }
+          .dossier-stat-val {
+            font-size: 1.05rem !important;
+          }
+        }
+        @media (max-width: 480px) {
+          .dossier-right {
+            grid-template-columns: 1fr !important;
+            gap: 0.85rem !important;
+          }
+          .dossier-stat-val {
+            font-size: 1.05rem !important;
+            word-break: break-word !important;
+            overflow-wrap: break-word !important;
           }
         }
       `}</style>

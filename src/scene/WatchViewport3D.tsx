@@ -400,14 +400,35 @@ export const WatchViewport3D: React.FC<WatchViewport3DProps> = ({
     });
     resizeObserver.observe(container);
 
-    // 8. Controlled Animation Loop with Document Visibility & Offscreen Sleep Guard
+    // 8. Controlled Animation Loop with THREE.Timer (eliminates deprecated THREE.Clock console warnings)
     let rafId = 0;
-    const clock = new THREE.Clock();
+    const timer = typeof (THREE as unknown as { Timer?: new () => any }).Timer === 'function'
+      ? new (THREE as unknown as { Timer: new () => any }).Timer()
+      : {
+          lastTime: performance.now(),
+          startTime: performance.now(),
+          delta: 0,
+          update(t?: number) {
+            const now = t ?? performance.now();
+            this.delta = Math.max(0, (now - this.lastTime) / 1000);
+            this.lastTime = now;
+          },
+          getDelta() {
+            return this.delta;
+          },
+          getElapsed() {
+            return (this.lastTime - this.startTime) / 1000;
+          },
+          reset() {
+            this.lastTime = performance.now();
+          },
+          dispose() {},
+        };
     const projVec = new THREE.Vector3();
 
     const onVisibilityChange = () => {
       if (!document.hidden) {
-        clock.getDelta();
+        timer.reset?.();
       }
     };
     document.addEventListener('visibilitychange', onVisibilityChange);
@@ -444,13 +465,14 @@ export const WatchViewport3D: React.FC<WatchViewport3DProps> = ({
       },
     ];
 
-    const animate = () => {
+    const animate = (timestamp: number = performance.now()) => {
       rafId = requestAnimationFrame(animate);
       // Abort BEFORE renderer.render() if tab is hidden or viewport is scrolled off-screen (Rule 1.3)
       if (document.hidden || !stateRef.current.isVisible) return;
 
-      const delta = clock.getDelta();
-      const elapsed = clock.getElapsedTime();
+      timer.update(timestamp);
+      const delta = timer.getDelta();
+      const elapsed = timer.getElapsed();
       const st = stateRef.current;
 
       // Update Mechanical Escapement & Hands
@@ -631,6 +653,7 @@ export const WatchViewport3D: React.FC<WatchViewport3DProps> = ({
       window.removeEventListener('pointerup', onPointerUp);
       window.removeEventListener('pointercancel', onPointerCancel);
 
+      timer.dispose?.();
       assembly.dispose();
       envTexRef.current?.dispose();
       pmremRef.current?.dispose();
